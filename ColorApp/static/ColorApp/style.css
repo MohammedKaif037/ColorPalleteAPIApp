@@ -1,0 +1,98 @@
+        .color-option {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .color-select {
+            display: none;
+        }
+
+        .custom-select {
+            position: relative;
+            width: 200px;
+        }
+
+        .selected-item {
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .selected-item .color-box {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+
+        .options-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .option-item {
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .option-item .color-box {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        .palette-container {
+            display: flex;
+            gap: 10px;
+        }
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .color-block {
+            width: 50px;
+            height: 100px;
+            cursor: pointer;
+            position: relative;
+        }
+        .color-code {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .color-block:hover .color-code {
+            display: block;
+        }
+        .copy-button {
+            background-color: rgb(168, 255, 255);
+            border: solid black 1px;
+            cursor: pointer;
+            padding: 0 5px;
+            margin-top: 5px;
+        }
+  

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette</title>
+     <link rel="stylesheet" href="{% static 'ColorApp/style.css' %}">
+    <script>
+        function toggleDropdown(colorId) {
+            const optionsList = document.getElementById(`${colorId}-options`);
+            optionsList.style.display = optionsList.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function selectColor(colorId, hexCode, colorName) {
+            const colorBox = document.getElementById(`${colorId}-box`);
+            const colorLabel = document.getElementById(`${colorId}-label`);
+            const colorSelect = document.getElementById(`${colorId}-input`);
+
+            colorBox.style.backgroundColor = hexCode;
+            colorLabel.textContent = colorName;
+            colorSelect.value = hexCode;
+
+            toggleDropdown(colorId);
+        }
+    </script>
+</head>
+<body>
+    <form action="{% url 'suggested_palette' %}" method="post">
+        {% csrf_token %}
+
+        {% for num in '12345' %}
+            <label for="color{{ num }}">Color {{ num }}:</label>
+            <div class="custom-select">
+                <div class="selected-item" onclick="toggleDropdown('color{{ num }}')">
+                    <span class="color-box" id="color{{ num }}-box"></span>
+                    <span id="color{{ num }}-label">Select a color</span>
+                </div>
+                <div class="options-list" id="color{{ num }}-options">
+                    {% for color in colors %}
+                        <div class="option-item" onclick="selectColor('color{{ num }}', '{{ color.hex_code }}', '{{ color.name }}')">
+                            <span class="color-box" style="background-color: {{ color.hex_code }};"></span>{{ color.name }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <input type="hidden" id="color{{ num }}-input" name="color{{ num }}">
+        {% endfor %}
+        <label for="model">Model:</label>
+        <select class="color-option" id="model" name="model">
+            {% for model in models %}
+                <option value="{{ model }}">{{ model }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <script src="{% static 'ColorApp/app.js' %}"></script>
+</body>
+</html>
