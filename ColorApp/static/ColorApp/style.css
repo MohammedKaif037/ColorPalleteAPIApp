@@ -59,6 +59,13 @@
             margin-right: 10px;
         }
         body {
+            background-image: url("/static/ColorApp/images/Sunset2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
