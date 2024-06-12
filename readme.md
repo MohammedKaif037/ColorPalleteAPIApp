@@ -12,6 +12,10 @@ This project is a Django web application that allows users to generate color pal
 
 Ensure you have Python installed on your machine. You should also install Django and other required packages listed in `requirements.txt`.
 
+## You can install these dependencies by running the following command in your project's directory:
+```pip install -r requirements.txt```
+
+
 ### Installation
 
 1. Clone the repository to your local machine.
