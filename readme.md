@@ -25,13 +25,13 @@ Ensure you have Python installed on your machine. You should also install Django
 Contributions are welcome. Please feel free to submit pull requests or open issues for discussion.
 
 ### Screenshot 1 - HOME
-![Screenshot 1](https://github.com/MohammedKaif037/DjangoBlog/blob/main/Screenshots/bloghome.png)
+![Screenshot 1](https://github.com/MohammedKaif037/ColorPalleteAPIApp/blob/master/ScreenShots/color_home.png)
 
-### Screenshot 2 - BlogPost
-![Screenshot 2](https://github.com/MohammedKaif037/DjangoBlog/blob/main/Screenshots/Togit.png)
+### Screenshot 2 - Generated
+![Screenshot 2](https://github.com/MohammedKaif037/ColorPalleteAPIApp/blob/master/ScreenShots/color_generated.png)
 
-### Screenshot 3 - Category
-![Screenshot 3](https://github.com/MohammedKaif037/DjangoBlog/blob/main/Screenshots/category.png)
+### Screenshot 3 - Random
+![Screenshot 3](https://github.com/MohammedKaif037/ColorPalleteAPIApp/blob/master/ScreenShots/color_random.png)
 
 
 
