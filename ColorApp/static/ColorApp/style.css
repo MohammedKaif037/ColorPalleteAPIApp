@@ -58,22 +58,40 @@
             border: 1px solid #ccc;
             margin-right: 10px;
         }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
         .palette-container {
             display: flex;
             gap: 10px;
         }
+        
         .color-item {
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
         }
+        
         .color-block {
-            width: 50px;
-            height: 100px;
+            width: 100px; /* Increase the width to make the color strips longer */
+            height: 200px; /* Increase the height to make the color strips longer */
             cursor: pointer;
             position: relative;
         }
+        
         .color-code {
             display: none;
             position: absolute;
@@ -85,9 +103,11 @@
             padding: 5px;
             border-radius: 5px;
         }
+        
         .color-block:hover .color-code {
             display: block;
         }
+        
         .copy-button {
             background-color: rgb(168, 255, 255);
             border: solid black 1px;
@@ -95,4 +115,4 @@
             padding: 0 5px;
             margin-top: 5px;
         }
-  
+        
