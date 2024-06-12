@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Palette</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'ColorApp/style.css' %}">
+    </head>
+    <body>
+        <h1>Random Palette</h1>
+        <div class="palette-container">
+            {% for color in palette %}
+            <div class="color-item">
+                <div class="color-block" onclick="handleColorBlockClick('{{ color.hex }}')" style="background-color: rgb({{ color.rgb.0 }}, {{ color.rgb.1 }}, {{ color.rgb.2 }});">
+                    <span class="color-code">HEX: {{ color.hex }}</span>
+                </div>
+                <div>
+                    <span class="color-code">RGB: ({{ color.rgb.0 }}, {{ color.rgb.1 }}, {{ color.rgb.2 }})<button class="copy-button" onclick="handleRgbButtonClick('rgb({{ color.rgb.0 }}, {{ color.rgb.1 }}, {{ color.rgb.2 }})')">Copy</button></span>
+                    <span class="color-code">HEX: {{ color.hex }}<button class="copy-button" onclick="handleHexButtonClick('{{ color.hex }}')">Copy</button></span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    <script src="{% static 'ColorApp/script.js' %}"></script>
+</body>
+</html>

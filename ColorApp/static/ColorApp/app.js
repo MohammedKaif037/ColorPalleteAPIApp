@@ -25,9 +25,6 @@ function copyToClipboard(color) {
 function handleHexButtonClick(hexColor) {
     copyToClipboard(hexColor);
 }
-function handleRgbButtonClick(rgbColor) {
-    copyToClipboard(rgbColor);
-}
 function handleColorBlockClick(hexColor) {
     copyToClipboard(hexColor);
 }

@@ -15,7 +15,7 @@ def get_random_palette(request):
     # Create a new palette with HEX and RGB values
     palette_with_hex = [{"rgb": color, "hex": rgb_to_hex(color[0], color[1], color[2])} for color in palette]
 
-    return render(request, "ColorApp/colors.html", {"palette": palette_with_hex, "random": 'random'})
+    return render(request, "ColorApp/colors_random.html", {"palette": palette_with_hex, "random": 'random'})
 
 def index(request):
     # Fetch available models from Colormind API
