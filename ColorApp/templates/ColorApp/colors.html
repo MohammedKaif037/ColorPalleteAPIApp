@@ -4,19 +4,17 @@
 <head>
     <title>Generated Palette</title>
      <link rel="stylesheet" href="{% static 'ColorApp/style.css' %}">
+     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 <body>
-    <h1>Generated Palette {% if model %}(Model: {{ model }}){% endif %}</h1>
+    <h1>Generated Palette {% if model %}(Model: {{ model|title }}){% endif %}</h1>
     <div class="palette-container">
         {% for hex, color in palette %}
             <div class="color-item">
                 <div class="color-block" onclick="handleColorBlockClick('{{ hex }}')" style="background-color: rgb({{ color.0 }}, {{ color.1 }}, {{ color.2 }});">
                     <span class="color-code">HEX: {{ hex }}</span>
                 </div>
-                <div>
-                    <span class="color-code">RGB: ({{ color.0 }}, {{ color.1 }}, {{ color.2 }})<button class="copy-button" onclick="handleRgbButtonClick('rgb({{ color.0 }}, {{ color.1 }}, {{ color.2 }})')">Copy</button></span>
-                    <span class="color-code">HEX: {{ hex }}<button class="copy-button" onclick="handleHexButtonClick('{{ hex }}')">Copy</button></span>
-                </div>
+                 
             </div>
         {% endfor %}
     </div>

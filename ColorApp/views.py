@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render
 import requests
 from .forms import Color
@@ -7,7 +8,10 @@ def rgb_to_hex(r, g, b):
 
 def get_random_palette(request):
     url = "http://colormind.io/api/"
-    data = {"model": "default"}
+    available_models = get_models(request)
+    model=random.choice(available_models)
+
+    data = {"model": model}
     response = requests.post(url, json=data)
     palette = response.json()["result"]
     print('PALETTE: %s' % palette)
@@ -15,9 +19,9 @@ def get_random_palette(request):
     # Create a new palette with HEX and RGB values
     palette_with_hex = [{"rgb": color, "hex": rgb_to_hex(color[0], color[1], color[2])} for color in palette]
 
-    return render(request, "ColorApp/colors_random.html", {"palette": palette_with_hex, "random": 'random'})
+    return render(request, "ColorApp/colors_random.html", {"palette": palette_with_hex,'model': model})
 
-def index(request):
+def get_models(request):
     # Fetch available models from Colormind API
     list_url = 'http://colormind.io/list/'
     response = requests.post(list_url)
@@ -25,8 +29,10 @@ def index(request):
         available_models = response.json()["result"]
     else:
         available_models = []
-
+    return available_models
+def index(request):
     # Fetch all colors from the database
+    available_models = get_models(request)
     colors = Color.objects.all()
     return render(request, 'ColorApp/index.html', {'colors': colors, 'models': available_models})
 

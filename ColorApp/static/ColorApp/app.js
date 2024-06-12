@@ -22,10 +22,17 @@ function copyToClipboard(color) {
     document.execCommand("copy");
     document.body.removeChild(dummy);
  }
-function handleHexButtonClick(hexColor) {
-    copyToClipboard(hexColor);
-}
-function handleColorBlockClick(hexColor) {
-    copyToClipboard(hexColor);
-}
  
+ function handleColorBlockClick(hex) {
+    navigator.clipboard.writeText(`#${hex}`).then(() => {
+      Toastify({
+        text: `Copied the color: #${hex}`,
+        duration: 2000,
+        gravity: "bottom",
+        position: "right",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+      }).showToast();
+    });
+  }

@@ -31,28 +31,28 @@
         {% csrf_token %}
 
         {% for num in '12345' %}
-            <label for="color{{ num }}">Color {{ num }}:</label>
-            <div class="custom-select">
-                <div class="selected-item" onclick="toggleDropdown('color{{ num }}')">
-                    <span class="color-box" id="color{{ num }}-box"></span>
-                    <span id="color{{ num }}-label">Select a color</span>
-                </div>
-                <div class="options-list" id="color{{ num }}-options">
-                    {% for color in colors %}
-                        <div class="option-item" onclick="selectColor('color{{ num }}', '{{ color.hex_code }}', '{{ color.name }}')">
-                            <span class="color-box" style="background-color: {{ color.hex_code }};"></span>{{ color.name }}
-                        </div>
-                    {% endfor %}
-                </div>
+        <label for="color{{ num }}" style="font-weight: bold; color: #000000;">Color {{ num }}:</label>
+        <div class="custom-select" style="font-weight: bold; color: #000000;">
+            <div class="selected-item" onclick="toggleDropdown('color{{ num }}')" style="font-weight: bold; color: #000000;">
+                <span class="color-box" id="color{{ num }}-box"></span>
+                <span id="color{{ num }}-label">Select a color</span>
             </div>
-            <input type="hidden" id="color{{ num }}-input" name="color{{ num }}">
+            <div class="options-list" id="color{{ num }}-options">
+                {% for color in colors %}
+                    <div class="option-item" onclick="selectColor('color{{ num }}', '{{ color.hex_code }}', '{{ color.name }}')" style="font-weight: bold; color: #000000;">
+                        <span class="color-box" style="background-color: {{ color.hex_code }};"></span>{{ color.name }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <input type="hidden" id="color{{ num }}-input" name="color{{ num }}">
+    {% endfor %}
+    <label for="model" style="font-weight: bold; color: #000000;">Model:</label>
+    <select class="color-option" id="model" name="model" style="font-weight: bold; color: #000000;">
+        {% for model in models %}
+        <option value="{{ model }}" style="font-weight: bold; color: #000000;">{{ model|title }}</option>
         {% endfor %}
-        <label for="model">Model:</label>
-        <select class="color-option" id="model" name="model">
-            {% for model in models %}
-                <option value="{{ model }}">{{ model }}</option>
-            {% endfor %}
-        </select><br><br>
+    </select><br><br>
 
         <button type="submit">Submit</button>
     </form>
